@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+        <link rel="stylesheet" href="stylesheet.css" type="text/css">
+    </head>
+    <body>
+
+        <div id="" class=""></div>
+        <div id="cityName" class=""></div>
+        <div id="temperature" class=""></div>
+
+        <div id="day1Low" class=""></div>
+        <div id="day1High" class=""></div>      
+
+        <div id="day2Low" class=""></div>
+        <div id="day2High" class=""></div> 
+
+        <div id="day3Low" class=""></div>
+        <div id="day3High" class=""></div> 
+
+        <div id="day4Low" class=""></div>
+        <div id="day4High" class=""></div> 
+
+        <div id="day5Low" class=""></div>
+        <div id="day5High" class=""></div> 
+
+        <script>
+
+            const openWeatherMapKey = '9a34960e1042ee68ac93cb697fc04610';
+
+            const url= "http://api.openweathermap.org/data/2.5/forecast/daily?q=glasgow&mode=json&units=metric&appid=" + openWeatherMapKey;
+
+            let cityName = document.getElementById("cityName");
+            let temperature = document.getElementById("temperature");
+
+            // COULD GET DAY FROM UNIX TIME CODE
+
+            //Forcast Data
+            let day1Low = document.getElementById("day1Low");
+            let day1High = document.getElementById("day1High");
+
+            let day2Low = document.getElementById("day2Low");
+            let day2High = document.getElementById("day2High");
+
+            let day3Low = document.getElementById("day3Low");
+            let day3High = document.getElementById("day3High");
+
+            let day4Low = document.getElementById("day4Low");
+            let day4High = document.getElementById("day4High");
+
+            let day5Low = document.getElementById("day5Low");
+            let day5High = document.getElementById("day5High");
+
+            let tommorow = document.getElementById("tommorow");
+
+            function theResponse(response) {
+                let jsonObject = JSON.parse(response);
+                cityName.innerHTML = jsonObject.city.name;
+
+                //Forcast Data
+                day1Low.innerHTML = parseInt(jsonObject.list[1].temp.min ) + "°";
+                day1High.innerHTML = parseInt(jsonObject.list[1].temp.max) + "°";
+
+                day2Low.innerHTML = parseInt(jsonObject.list[2].temp.min ) + "°";
+                day2High.innerHTML = parseInt(jsonObject.list[2].temp.max) + "°";
+
+                day3Low.innerHTML = parseInt(jsonObject.list[3].temp.min ) + "°";
+                day3High.innerHTML = parseInt(jsonObject.list[3].temp.max) + "°";
+
+                day4Low.innerHTML = parseInt(jsonObject.list[4].temp.min ) + "°";
+                day4High.innerHTML = parseInt(jsonObject.list[4].temp.max) + "°";
+
+                day5Low.innerHTML = parseInt(jsonObject.list[5].temp.min ) + "°";
+                day5High.innerHTML = parseInt(jsonObject.list[5].temp.max) + "°";
+
+                //icon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
+            }
+
+
+            function httpRequestAsync(url, callback)
+            {
+                var httpRequest = new XMLHttpRequest();
+                httpRequest.onreadystatechange = () => { 
+                    if (httpRequest.readyState == 4 && httpRequest.status == 200)
+                        callback(httpRequest.responseText);
+                }
+                httpRequest.open("GET", url, true); // true for asynchronous 
+                httpRequest.send();
+            }
+
+
+            httpRequestAsync(url, theResponse);
+
+        </script>
+    </body>
+</html>
