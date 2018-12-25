@@ -4,36 +4,80 @@
         <meta charset="UTF-8">
         <title>title</title>
         <link rel="stylesheet" href="stylesheet.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700|Merriweather:400,700" rel="stylesheet">
     </head>
     <body>
 
-        <div id="cityName" class=""></div>
-        <div id="temperature" class=""></div>
+        <div class="card">
 
-        <div id="day2Name" class=""></div>
-        <img id="day2Icon" src="">
-        <div id="day2Low" class=""></div>
-        <div id="day2High" class=""></div> 
+            <div class="card__top">
+                <div class="cityName">
+                    <div id="cityName" class=""></div>
+                </div>
+                <div class="weatherIconLarge">
+                    <img id="dayIcon" src="">
+                </div>
+                <div class="cityTemperature">
+                    <div id="temperature" class=""></div>
+                </div>
+            </div>
 
-        <div id="day3Name" class=""></div>
-        <img id="day3Icon" src="">
-        <div id="day3Low" class=""></div>
-        <div id="day3High" class=""></div> 
+            <div class="card__bottom">
 
-        <div id="day4Name" class=""></div>
-        <img id="day4Icon" src="">
-        <div id="day4Low" class=""></div>
-        <div id="day4High" class=""></div> 
+                    <div class="dayHolder">
+                        <div class="dayHolder__background">
+                        
+                        </div>
+                        <div id="day2Name" class=""></div>
+                        <img id="day2Icon" src="">
+                        <div class="dayHolder__bottom">
+                            <div id="day2Low" class="dayHolder__bottom__temperature"></div>
+                            <div id="day2High" class="dayHolder__bottom__temperature"></div> 
+                        </div>
 
-        <div id="day5Name" class=""></div>
-        <img id="day5Icon" src="">
-        <div id="day5Low" class=""></div>
-        <div id="day5High" class=""></div> 
+                </div>
 
-        <div id="day6Name" class=""></div>
-        <img id="day6Icon" src="">
-        <div id="day6Low" class=""></div>
-        <div id="day6High" class=""></div> 
+
+
+
+                <div class="dayHolder">
+                    <div id="day3Name" class=""></div>
+                    <img id="day3Icon" src="">
+                    <div class="dayHolder__bottom">
+                        <div id="day3Low" class="dayHolder__bottom__temperature"></div>
+                        <div id="day3High" class="dayHolder__bottom__temperature"></div> 
+                    </div>
+                </div>
+
+                <div class="dayHolder">
+                    <div id="day4Name" class=""></div>
+                    <img id="day4Icon" src="">
+                    <div class="dayHolder__bottom">
+                        <div id="day4Low" class="dayHolder__bottom__temperature"></div>
+                        <div id="day4High" class="dayHolder__bottom__temperature"></div> 
+                    </div>
+                </div>
+
+                <div class="dayHolder">
+                    <div id="day5Name" class=""></div>
+                    <img id="day5Icon" src="">
+                    <div class="dayHolder__bottom">
+                        <div id="day5Low" class="dayHolder__bottom__temperature"></div>
+                        <div id="day5High" class="dayHolder__bottom__temperature"></div> 
+                    </div>
+                </div>
+
+                <div class="dayHolder">
+                    <div id="day6Name" class=""></div>
+                    <img id="day6Icon" src="">
+                    <div class="dayHolder__bottom">
+                        <div id="day6Low" class="dayHolder__bottom__temperature"></div>
+                        <div id="day6High" class="dayHolder__bottom__temperature"></div> 
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <script>
 
@@ -88,42 +132,43 @@
 
                 cityName.innerHTML = jsonObject.city.name;
 
-                day2Name.innerHTML = getDay(jsonObject.list[2].dt);
-                day2Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[2].weather[0].icon + ".png";
-                day2Low.innerHTML = parseInt(jsonObject.list[2].temp.min ) + "°";
-                day2High.innerHTML = parseInt(jsonObject.list[2].temp.max) + "°";
+                day2Name.innerHTML = getDay(jsonObject.list[1].dt);
+                day2Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[1].weather[0].icon + ".png";
+                day2Low.innerHTML = parseInt(jsonObject.list[1].temp.min ) + "°";
+                day2High.innerHTML = parseInt(jsonObject.list[1].temp.max) + "°";
 
-                day3Name.innerHTML = getDay(jsonObject.list[3].dt);
-                day3Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[3].weather[0].icon + ".png";
-                day3Low.innerHTML = parseInt(jsonObject.list[3].temp.min ) + "°";
-                day3High.innerHTML = parseInt(jsonObject.list[3].temp.max) + "°";
+                day3Name.innerHTML = getDay(jsonObject.list[2].dt);
+                day3Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[2].weather[0].icon + ".png";
+                day3Low.innerHTML = parseInt(jsonObject.list[2].temp.min ) + "°";
+                day3High.innerHTML = parseInt(jsonObject.list[2].temp.max) + "°";
 
-                day4Name.innerHTML = getDay(jsonObject.list[4].dt);
-                day4Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[4].weather[0].icon + ".png";
-                day4Low.innerHTML = parseInt(jsonObject.list[4].temp.min ) + "°";
-                day4High.innerHTML = parseInt(jsonObject.list[4].temp.max) + "°";
+                day4Name.innerHTML = getDay(jsonObject.list[3].dt);
+                day4Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[3].weather[0].icon + ".png";
+                day4Low.innerHTML = parseInt(jsonObject.list[3].temp.min ) + "°";
+                day4High.innerHTML = parseInt(jsonObject.list[3].temp.max) + "°";
 
-                day5Name.innerHTML = getDay(jsonObject.list[5].dt);
-                day5Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[5].weather[0].icon + ".png";
-                day5Low.innerHTML = parseInt(jsonObject.list[5].temp.min ) + "°";
-                day5High.innerHTML = parseInt(jsonObject.list[5].temp.max) + "°";
+                day5Name.innerHTML = getDay(jsonObject.list[4].dt);
+                day5Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[4].weather[0].icon + ".png";
+                day5Low.innerHTML = parseInt(jsonObject.list[4].temp.min ) + "°";
+                day5High.innerHTML = parseInt(jsonObject.list[4].temp.max) + "°";
 
-                day6Name.innerHTML = getDay(jsonObject.list[6].dt);
-                day6Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[6].weather[0].icon + ".png";
-                day6Low.innerHTML = parseInt(jsonObject.list[6].temp.min ) + "°";
-                day6High.innerHTML = parseInt(jsonObject.list[6].temp.max) + "°";
+                day6Name.innerHTML = getDay(jsonObject.list[5].dt);
+                day6Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[5].weather[0].icon + ".png";
+                day6Low.innerHTML = parseInt(jsonObject.list[5].temp.min ) + "°";
+                day6High.innerHTML = parseInt(jsonObject.list[5].temp.max) + "°";
 
             }
 
             function jsonTemperature(response) {
                 let jsonObject = JSON.parse(response);
                 temperature.innerHTML = parseInt(jsonObject.main.temp) + "°";
-            }
 
+                dayIcon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
+            }
 
             function httpRequestAsync(url, callback) {                
                 var httpRequest = new XMLHttpRequest();
-                
+
                 httpRequest.onreadystatechange = () => { 
                     if (httpRequest.readyState == 4 && httpRequest.status == 200)
                         callback(httpRequest.responseText);

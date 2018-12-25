@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+    /*    font-family: 'Merriweather', serif;*/
+}
+
+.card {
+    height: 580px;
+    width: 540px;
+    color: white;
+    border-radius: 5px;
+
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d8595+0,c3c8d5+100 */
+    background: #7d8595; /* Old browsers */
+    background: -moz-linear-gradient(top, #7d8595 0%, #c3c8d5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #7d8595 0%,#c3c8d5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7d8595 0%,blue 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d8595', endColorstr='#c3c8d5',GradientType=0 ); /* IE6-9 */
+    position: relative;
+}
+
+.card__top {
+    position: relative;
+    text-align: center;
+    padding-top: 15%;
+}
+
+.cityName {
+    font-size: 42px;
+}
+
+.weatherIconLarge {
+    padding-top: 20px;
+}
+
+.cityTemperature {
+    font-size: 56px;
+    padding-top: 20px;
+}
+
+
+.card__bottom {
+    text-align: center;
+    position: absolute;
+    bottom: 5px;
+}
+
+.dayHolder {
+    height: 140px;
+    background-color: rgba(0,0,0,50%);
+    width: 96px;
+    border-radius: 5px;
+    padding: 10px;
+    float: left;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+
+.dayHolder__bottom {
+    text-align: none;
+    position: absolute;
+    bottom: 10px;
+    /*    left: 50%;*/
+    /*    margin-left: -0px;*/
+}
+
+.dayHolder__bottom__temperature {
+    display: inline-block;
+    width: 36px;
+
+
+}
