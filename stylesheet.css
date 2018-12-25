@@ -29,7 +29,7 @@ body {
     padding-top: 15%;
 }
 
-.cityName {
+.cityNameHolder {
     font-size: 42px;
 }
 
@@ -75,3 +75,16 @@ body {
 
 
 }
+
+#cards {
+    max-width: 1650px;
+    margin: 0 auto 30px;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: 540px 540px 540px;
+    grid-gap: 15px;
+    align-items: stretch;
+}
+
