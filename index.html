@@ -10,163 +10,25 @@
 
         <section id="cards">
 
-            <div class="card">
-                <div class="card__top">
-                    <div class="cityNameHolder">
-                        <div class="cityName" class=""></div>
-                    </div>
-                    <div class="weatherIconLarge">
-                        <img class="dayIcon" src="">
-                    </div>
-                    <div class="cityTemperature">
-                        <div class="temperature" class=""></div>
-                    </div>
-                </div>
-
-                <div class="card__bottom">
-
-                    <div class="dayHolder">
-                        <div class="dayHolder__background">
-
-                        </div>
-                        <div class="day2Name" class=""></div>
-                        <img class="day2Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day2Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day2High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-
-                    </div>
-
-
-
-
-                    <div class="dayHolder">
-                        <div class="day3Name" class=""></div>
-                        <img class="day3Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day3Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day3High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-                    </div>
-
-                    <div class="dayHolder">
-                        <div class="day4Name" class=""></div>
-                        <img class="day4Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day4Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day4High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-                    </div>
-
-                    <div class="dayHolder">
-                        <div class="day5Name" class=""></div>
-                        <img class="day5Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day5Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day5High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-                    </div>
-
-                    <div class="dayHolder">
-                        <div class="day6Name" class=""></div>
-                        <img class="day6Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day6Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day6High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        <div class="card">
-                <div class="card__top">
-                    <div class="cityNameHolder">
-                        <div class="cityName" class=""></div>
-                    </div>
-                    <div class="weatherIconLarge">
-                        <img class="dayIcon" src="">
-                    </div>
-                    <div class="cityTemperature">
-                        <div class="temperature" class=""></div>
-                    </div>
-                </div>
-
-                <div class="card__bottom">
-
-                    <div class="dayHolder">
-                        <div class="dayHolder__background">
-
-                        </div>
-                        <div class="day2Name" class=""></div>
-                        <img class="day2Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day2Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day2High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-
-                    </div>
-
-
-
-
-                    <div class="dayHolder">
-                        <div class="day3Name" class=""></div>
-                        <img class="day3Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day3Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day3High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-                    </div>
-
-                    <div class="dayHolder">
-                        <div class="day4Name" class=""></div>
-                        <img class="day4Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day4Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day4High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-                    </div>
-
-                    <div class="dayHolder">
-                        <div class="day5Name" class=""></div>
-                        <img class="day5Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day5Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day5High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-                    </div>
-
-                    <div class="dayHolder">
-                        <div class="day6Name" class=""></div>
-                        <img class="day6Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div class="day6Low" class="dayHolder__bottom__temperature"></div>
-                            <div class="day6High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            
 
         </section>
 
-        <button onclick="addCity()">Add City</button>
+        <button onclick="addCard()">Add City</button>
+        <button onclick="addData()">Add Data</button>
+        <input id="inputCityName" type="text">
 
         <script>
 
             const openWeatherMapKey = '9a34960e1042ee68ac93cb697fc04610';
 
-            
             // all bellow to be dynamically added, maby do all on buttom click
             const urlWeekly= "http://api.openweathermap.org/data/2.5/forecast/daily?q=glasgow&mode=json&units=metric&appid=" + openWeatherMapKey;
 
             const urlDaily = "http://api.openweathermap.org/data/2.5/weather?q=Glasgow&mode=json&units=metric&appid=" + openWeatherMapKey;
 
-            let cityName = document.getElementsByClassName("cityName")[1];
-            let temperature = document.getElementsByClassName("temperature")[1];
+            let cityName = document.getElementsByClassName("cityName")[0];
+            let temperature = document.getElementsByClassName("temperature")[0];
+            let dayIcon = document.getElementsByClassName("dayIcon")[0];
 
             // get day from unix code
             function getDay(dtCode) {
@@ -184,31 +46,29 @@
             let day2Low = document.getElementsByClassName("day2Low")[0];
             let day2High = document.getElementsByClassName("day2High")[0];
 
-            let day3Name = document.getElementById("day3Name");
-            let day3Icon = document.getElementById("day3Icon");
-            let day3Low = document.getElementById("day3Low");
-            let day3High = document.getElementById("day3High");
+            let day3Name = document.getElementsByClassName("day3Name")[0];
+            let day3Icon = document.getElementsByClassName("day3Icon")[0];
+            let day3Low = document.getElementsByClassName("day3Low")[0];
+            let day3High = document.getElementsByClassName("day3High")[0];
 
-            let day4Name = document.getElementById("day4Name");
-            let day4Icon = document.getElementById("day4Icon");
-            let day4Low = document.getElementById("day4Low");
-            let day4High = document.getElementById("day4High");
+            let day4Name = document.getElementsByClassName("day4Name")[0];
+            let day4Icon = document.getElementsByClassName("day4Icon")[0];
+            let day4Low = document.getElementsByClassName("day4Low")[0];
+            let day4High = document.getElementsByClassName("day4High")[0];
 
-            let day5Name = document.getElementById("day5Name");
-            let day5Icon = document.getElementById("day5Icon");
-            let day5Low = document.getElementById("day5Low");
-            let day5High = document.getElementById("day5High");
+            let day5Name = document.getElementsByClassName("day5Name")[0];
+            let day5Icon = document.getElementsByClassName("day5Icon")[0];
+            let day5Low = document.getElementsByClassName("day5Low")[0];
+            let day5High = document.getElementsByClassName("day5High")[0];
 
-            let day6Name = document.getElementById("day6Name");
-            let day6Icon = document.getElementById("day6Icon");
-            let day6Low = document.getElementById("day6Low");
-            let day6High = document.getElementById("day6High");
+            let day6Name = document.getElementsByClassName("day6Name")[0];
+            let day6Icon = document.getElementsByClassName("day6Icon")[0];
+            let day6Low = document.getElementsByClassName("day6Low")[0];
+            let day6High = document.getElementsByClassName("day6High")[0];
 
             // 5 day high and low temperature with icon and day name
             function jsonWeekly(response) {
                 let jsonObject = JSON.parse(response);
-
-                cityName.innerHTML = jsonObject.city.name;
 
                 day2Name.innerHTML = getDay(jsonObject.list[1].dt);
                 day2Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[1].weather[0].icon + ".png";
@@ -234,14 +94,16 @@
                 day6Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[5].weather[0].icon + ".png";
                 day6Low.innerHTML = parseInt(jsonObject.list[5].temp.min ) + "°";
                 day6High.innerHTML = parseInt(jsonObject.list[5].temp.max) + "°";
-
             }
 
             function jsonTemperature(response) {
                 let jsonObject = JSON.parse(response);
-                temperature.innerHTML = parseInt(jsonObject.main.temp) + "°";
 
+                cityName.innerHTML = jsonObject.name;
+                temperature.innerHTML = parseInt(jsonObject.main.temp) + "°";                
                 dayIcon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
+
+                console.log('JSONT', dayIcon.src)
             }
 
             function httpRequestAsync(url, callback) {                
@@ -251,27 +113,152 @@
                     if (httpRequest.readyState == 4 && httpRequest.status == 200)
                         callback(httpRequest.responseText);
                 }
-                httpRequest.open("GET", url, true); // true for asynchronous 
+                httpRequest.open("GET", url, true);
                 httpRequest.send();
             }
 
             httpRequestAsync(urlWeekly, jsonWeekly);
             httpRequestAsync(urlDaily, jsonTemperature);
 
-            function addCity() {
-                document.getElementById("cards").innerHTML += `<div class="">test</div>`;
+
+
+
+
+
+
+            var countCard = -1;
+
+            //add something to second card
+            function addData() {           
+                                                
+                var inputCityName = document.getElementById('inputCityName').value;
+                
+                console.log(inputCityName);
+                
+                const openWeatherMapKey = '9a34960e1042ee68ac93cb697fc04610';
+
+                // all bellow to be dynamically added, maby do all on buttom click
+                const urlWeekly= "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + inputCityName +"&mode=json&units=metric&appid=" + openWeatherMapKey;
+
+                const urlDaily = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCityName +"&mode=json&units=metric&appid=" + openWeatherMapKey;
+
+                inputCityName = "0";
+                
+                let cityName = document.getElementsByClassName("cityName")[countCard];
+                let temperature = document.getElementsByClassName("temperature")[countCard];
+                let dayIcon = document.getElementsByClassName("dayIcon")[countCard];
+
+                // get day from unix code
+                function getDay(dtCode) {
+
+                    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; 
+
+                    var dayNumber = new Date(dtCode * 1000).getDay();                
+                    var dayName = days[dayNumber];
+
+                    return dayName;
+                }
+
+                let day2Name = document.getElementsByClassName("day2Name")[countCard];
+                let day2Icon = document.getElementsByClassName("day2Icon")[countCard];
+                let day2Low = document.getElementsByClassName("day2Low")[countCard];
+                let day2High = document.getElementsByClassName("day2High")[countCard];
+
+                let day3Name = document.getElementsByClassName("day3Name")[countCard];
+                let day3Icon = document.getElementsByClassName("day3Icon")[countCard];
+                let day3Low = document.getElementsByClassName("day3Low")[countCard];
+                let day3High = document.getElementsByClassName("day3High")[countCard];
+
+                let day4Name = document.getElementsByClassName("day4Name")[countCard];
+                let day4Icon = document.getElementsByClassName("day4Icon")[countCard];
+                let day4Low = document.getElementsByClassName("day4Low")[countCard];
+                let day4High = document.getElementsByClassName("day4High")[countCard];
+
+                let day5Name = document.getElementsByClassName("day5Name")[countCard];
+                let day5Icon = document.getElementsByClassName("day5Icon")[countCard];
+                let day5Low = document.getElementsByClassName("day5Low")[countCard];
+                let day5High = document.getElementsByClassName("day5High")[countCard];
+
+                let day6Name = document.getElementsByClassName("day6Name")[countCard];
+                let day6Icon = document.getElementsByClassName("day6Icon")[countCard];
+                let day6Low = document.getElementsByClassName("day6Low")[countCard];
+                let day6High = document.getElementsByClassName("day6High")[countCard];
+
+                // 5 day high and low temperature with icon and day name
+                function jsonWeekly(response) {
+                    let jsonObject = JSON.parse(response);
+
+                    day2Name.innerHTML = getDay(jsonObject.list[1].dt);
+                    day2Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[1].weather[0].icon + ".png";
+                    day2Low.innerHTML = parseInt(jsonObject.list[1].temp.min ) + "°";
+                    day2High.innerHTML = parseInt(jsonObject.list[1].temp.max) + "°";
+
+                    day3Name.innerHTML = getDay(jsonObject.list[2].dt);
+                    day3Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[2].weather[0].icon + ".png";
+                    day3Low.innerHTML = parseInt(jsonObject.list[2].temp.min ) + "°";
+                    day3High.innerHTML = parseInt(jsonObject.list[2].temp.max) + "°";
+
+                    day4Name.innerHTML = getDay(jsonObject.list[3].dt);
+                    day4Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[3].weather[0].icon + ".png";
+                    day4Low.innerHTML = parseInt(jsonObject.list[3].temp.min ) + "°";
+                    day4High.innerHTML = parseInt(jsonObject.list[3].temp.max) + "°";
+
+                    day5Name.innerHTML = getDay(jsonObject.list[4].dt);
+                    day5Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[4].weather[0].icon + ".png";
+                    day5Low.innerHTML = parseInt(jsonObject.list[4].temp.min ) + "°";
+                    day5High.innerHTML = parseInt(jsonObject.list[4].temp.max) + "°";
+
+                    day6Name.innerHTML = getDay(jsonObject.list[5].dt);
+                    day6Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[5].weather[0].icon + ".png";
+                    day6Low.innerHTML = parseInt(jsonObject.list[5].temp.min ) + "°";
+                    day6High.innerHTML = parseInt(jsonObject.list[5].temp.max) + "°";
+
+                }
+
+                function jsonTemperature(response) {
+                    let jsonObject = JSON.parse(response);
+
+                    cityName.innerHTML = jsonObject.name;
+                    temperature.innerHTML = parseInt(jsonObject.main.temp) + "°";                
+                    dayIcon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
+
+                }
+
+                function httpRequestAsync(url, callback) {                
+                    var httpRequest = new XMLHttpRequest();
+
+                    httpRequest.onreadystatechange = () => { 
+                        if (httpRequest.readyState == 4 && httpRequest.status == 200)
+                            callback(httpRequest.responseText);
+                    }
+                    httpRequest.open("GET", url, true);
+                    httpRequest.send();
+                }
+
+                httpRequestAsync(urlWeekly, jsonWeekly);
+                httpRequestAsync(urlDaily, jsonTemperature);
+
+                document.getElementById('inputCityName').value = "";
             }
 
-            let cardHtml = `<div class="card">
+
+            // DO THIS FIRST
+            function addCard() {
+                countCard++;
+                document.getElementById("cards").innerHTML += cardHtml;
+            }
+
+            let cardHtml = ` 
+            <div class="card">
                 <div class="card__top">
-                    <div class="cityName">
-                        <div id="cityName" class=""></div>
+                    <div class="cityNameHolder">
+                        <div class="cityName" class=""></div>
                     </div>
                     <div class="weatherIconLarge">
-                        <img id="dayIcon" src="">
+                        <img class="dayIcon" src="">
                     </div>
                     <div class="cityTemperature">
-                        <div id="temperature" class=""></div>
+                        <div class="temperature" class=""></div>
                     </div>
                 </div>
 
@@ -281,59 +268,55 @@
                         <div class="dayHolder__background">
 
                         </div>
-                        <div id="day2Name" class=""></div>
-                        <img id="day2Icon" src="">
+                        <div class="day2Name" class=""></div>
+                        <img class="day2Icon" src="">
                         <div class="dayHolder__bottom">
-                            <div id="day2Low" class="dayHolder__bottom__temperature"></div>
-                            <div id="day2High" class="dayHolder__bottom__temperature"></div> 
-                        </div>
-
-                    </div>
-
-
-
-
-                    <div class="dayHolder">
-                        <div id="day3Name" class=""></div>
-                        <img id="day3Icon" src="">
-                        <div class="dayHolder__bottom">
-                            <div id="day3Low" class="dayHolder__bottom__temperature"></div>
-                            <div id="day3High" class="dayHolder__bottom__temperature"></div> 
+                            <div class="day2Low dayHolder__bottom__temperature"></div>
+                            <div class="day2High dayHolder__bottom__temperature"></div> 
                         </div>
                     </div>
 
                     <div class="dayHolder">
-                        <div id="day4Name" class=""></div>
-                        <img id="day4Icon" src="">
+                        <div class="day3Name" class=""></div>
+                        <img class="day3Icon" src="">
                         <div class="dayHolder__bottom">
-                            <div id="day4Low" class="dayHolder__bottom__temperature"></div>
-                            <div id="day4High" class="dayHolder__bottom__temperature"></div> 
+                            <div class="day3Low dayHolder__bottom__temperature"></div>
+                            <div class="day3High dayHolder__bottom__temperature"></div> 
                         </div>
                     </div>
 
                     <div class="dayHolder">
-                        <div id="day5Name" class=""></div>
-                        <img id="day5Icon" src="">
+                        <div class="day4Name" class=""></div>
+                        <img class="day4Icon" src="">
                         <div class="dayHolder__bottom">
-                            <div id="day5Low" class="dayHolder__bottom__temperature"></div>
-                            <div id="day5High" class="dayHolder__bottom__temperature"></div> 
+                            <div class="day4Low dayHolder__bottom__temperature"></div>
+                            <div class="day4High dayHolder__bottom__temperature"></div> 
                         </div>
                     </div>
 
                     <div class="dayHolder">
-                        <div id="day6Name" class=""></div>
-                        <img id="day6Icon" src="">
+                        <div class="day5Name" class=""></div>
+                        <img class="day5Icon" src="">
                         <div class="dayHolder__bottom">
-                            <div id="day6Low" class="dayHolder__bottom__temperature"></div>
-                            <div id="day6High" class="dayHolder__bottom__temperature"></div> 
+                            <div class="day5Low dayHolder__bottom__temperature"></div>
+                            <div class="day5High dayHolder__bottom__temperature"></div> 
+                        </div>
+                    </div>
+
+                    <div class="dayHolder">
+                        <div class="day6Name" class=""></div>
+                        <img class="day6Icon" src="">
+                        <div class="dayHolder__bottom">
+                            <div class="day6Low dayHolder__bottom__temperature"></div>
+                            <div class="day6High dayHolder__bottom__temperature"></div> 
                         </div>
                     </div>
 
                 </div>
             </div>
 `
-            
-            
+
+
 
         </script>
     </body>
