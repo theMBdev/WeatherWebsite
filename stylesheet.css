@@ -3,30 +3,39 @@
 }
 
 body {
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Roboto', 'Merriweather Sans', sans-serif;
     /*    font-family: 'Merriweather', serif;*/
 }
 
+
+
+
 .card {
-    height: 580px;
-    width: 540px;
+    height: 500px;
+    width: 520px;
     color: white;
-    border-radius: 5px;
-
-
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7d8595+0,c3c8d5+100 */
-    background: #7d8595; /* Old browsers */
-    background: -moz-linear-gradient(top, #7d8595 0%, #c3c8d5 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #7d8595 0%,#c3c8d5 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #7d8595 0%,blue 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d8595', endColorstr='#c3c8d5',GradientType=0 ); /* IE6-9 */
+    border-radius: 5px;  
     position: relative;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#89a8ff+0,67cbdb+100 */
+    background: #89a8ff; /* Old browsers */
+    background: -moz-linear-gradient(top, #89a8ff 0%, #67cbdb 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #89a8ff 0%,#67cbdb 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #89a8ff 0%,#67cbdb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#89a8ff', endColorstr='#67cbdb',GradientType=0 ); /* IE6-9 */
+
+
+    -webkit-box-shadow: 0px 6px 16px -4px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 6px 16px -4px rgba(0,0,0,0.4);
+    box-shadow: 0px 6px 16px -4px rgba(0,0,0,0.4);
+
 }
 
 .card__top {
     position: relative;
     text-align: center;
-    padding-top: 15%;
+    padding-top: 70px;
+    height: 295px;
 }
 
 .cityNameHolder {
@@ -45,44 +54,131 @@ body {
 
 .card__bottom {
     text-align: center;
-    position: absolute;
-    bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;    
+    margin-top: auto;
+    align-items: flex-end;
+    height: 195px;
+    margin: 3px 5px 5px 5px;
 }
 
 .dayHolder {
     height: 140px;
-    background-color: rgba(0,0,0,50%);
+
     width: 96px;
     border-radius: 5px;
     padding: 10px;
+    /*
     float: left;
     margin-left: 6px;
     margin-right: 6px;
+    */
+    position: relative;    
 }
 
+.dayHolder__background {
+    position:absolute; top:0px; right:0px; bottom:0px; left:0px;
+
+    background: inherit;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dayHolder__background:after {
+    content: '';
+    width: 300px;
+    height: 300px;
+    background: inherit; 
+    position: absolute;
+    left: -25px;
+    left position
+    right: 0;
+    top: -25px;  
+    top position 
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(0,0,0,0.15);
+    filter: blur(10px);
+    
+}
+
+.dayName {
+    position: relative;
+    top: 1px;    
+    color: white;
+}
+
+.icon {    
+    position: relative;
+    bottom: -15px;    
+}
 
 .dayHolder__bottom {
     text-align: none;
-    position: absolute;
-    bottom: 10px;
+    position: relative;
+    bottom: -25px;
     /*    left: 50%;*/
     /*    margin-left: -0px;*/
 }
 
 .dayHolder__bottom__temperature {
     display: inline-block;
-    width: 36px;
+    width: 30px;
 }
 
-#cards {
-    max-width: 1650px;
-    margin: 0 auto 30px;
-}
 
 #cards {
     display: grid;
-    grid-template-columns: 540px 540px 540px;
+    grid-template-columns: repeat(auto-fill);
     grid-gap: 15px;
     align-items: stretch;
+
+    max-width: 500px;
+    margin: 0 auto 30px;
 }
+
+input[type=button], input[type=submit], input[type=reset] {
+
+    background: #79b7ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(left, #79b7ff 0%,#797eff 99%);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #79b7ff 0%,#797eff 99%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 1100px) {
+
+    #cards {
+        display: grid;
+        grid-template-columns: 540px 540px;
+        grid-gap: 15px;
+        align-items: stretch;
+
+        max-width: 1080px;
+        margin: 0 auto 30px;
+    }
+
+    @media only screen and (min-width: 1700px) {
+
+        #cards {
+            display: grid;
+            grid-template-columns: 540px 540px 540px;
+            grid-gap: 15px;
+            align-items: stretch;
+
+            max-width: 1650px;
+            margin: 0 auto 30px;
+        }
+
+
+
+    }
 
