@@ -9,7 +9,7 @@
     </head>
     <body>
 
-
+        
         <section id="cards">
 
         </section>
@@ -35,8 +35,6 @@
                 const urlWeekly= "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + inputCityName +"&mode=json&units=metric&appid=" + openWeatherMapKey;
 
                 const urlDaily = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCityName +"&mode=json&units=metric&appid=" + openWeatherMapKey;
-
-                inputCityName = "0";
 
                 let cityName = document.getElementsByClassName("cityName")[countCard];
                 let temperature = document.getElementsByClassName("temperature")[countCard];
@@ -83,27 +81,27 @@
                     let jsonObject = JSON.parse(response);
 
                     day2Name.innerHTML = getDay(jsonObject.list[1].dt);
-                    day2Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[1].weather[0].icon + ".png";
+                    day2Icon.src = "images/" + jsonObject.list[1].weather[0].icon + ".png";
                     day2Low.innerHTML = parseInt(jsonObject.list[1].temp.min ) + "°";
                     day2High.innerHTML = parseInt(jsonObject.list[1].temp.max) + "°";
 
                     day3Name.innerHTML = getDay(jsonObject.list[2].dt);
-                    day3Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[2].weather[0].icon + ".png";
+                    day3Icon.src = "images/" + jsonObject.list[2].weather[0].icon + ".png";
                     day3Low.innerHTML = parseInt(jsonObject.list[2].temp.min ) + "°";
                     day3High.innerHTML = parseInt(jsonObject.list[2].temp.max) + "°";
 
                     day4Name.innerHTML = getDay(jsonObject.list[3].dt);
-                    day4Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[3].weather[0].icon + ".png";
+                    day4Icon.src = "images/" + jsonObject.list[3].weather[0].icon + ".png";
                     day4Low.innerHTML = parseInt(jsonObject.list[3].temp.min ) + "°";
                     day4High.innerHTML = parseInt(jsonObject.list[3].temp.max) + "°";
 
                     day5Name.innerHTML = getDay(jsonObject.list[4].dt);
-                    day5Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[4].weather[0].icon + ".png";
+                    day5Icon.src = "images/" + jsonObject.list[4].weather[0].icon + ".png";
                     day5Low.innerHTML = parseInt(jsonObject.list[4].temp.min ) + "°";
                     day5High.innerHTML = parseInt(jsonObject.list[4].temp.max) + "°";
 
                     day6Name.innerHTML = getDay(jsonObject.list[5].dt);
-                    day6Icon.src = "http://openweathermap.org/img/w/" + jsonObject.list[5].weather[0].icon + ".png";
+                    day6Icon.src = "images/" + jsonObject.list[5].weather[0].icon + ".png";
                     day6Low.innerHTML = parseInt(jsonObject.list[5].temp.min ) + "°";
                     day6High.innerHTML = parseInt(jsonObject.list[5].temp.max) + "°";
 
@@ -114,7 +112,7 @@
 
                     cityName.innerHTML = jsonObject.name;
                     temperature.innerHTML = parseInt(jsonObject.main.temp) + "°";                
-                    dayIcon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
+                    dayIcon.src = "images/" + jsonObject.weather[0].icon + ".png";
 
                 }
 
