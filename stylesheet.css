@@ -15,39 +15,26 @@ body {
     height: 100vh;  
     min-height: 500px;
     background: #4759ff;
+    padding: 18px;
 
     display: flex;
     align-items: center;
 
     background-image: url(images/worldblue2.png), linear-gradient(to right, hsl(234,100%,64%) 0%,hsl(196,100%,69%) 100%);
 
-    background-position: left; 
+    background-position: center; 
     background-repeat: no-repeat;
     background-size: contain;
 
 }
 
 .header h1 {
-    width: 40%;
-    padding: 0 0 100px 10%;
-    margin: 0px;
+    margin: auto;
     color: white;
     font-size: 42px;
+    text-align: center; 
+    padding-bottom: 50px;
 }
-
-.header__image {    
-    background-image: url("images/guydesk.png");
-
-    height: 500px;
-    margin-bottom: 10px;
-    background-position: right center; 
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    min-width: 60%;
-    width: 60%;
-}
-
 
 .svg {
 
@@ -69,6 +56,9 @@ body {
     -webkit-box-shadow: 0px 6px 12px 1px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 6px 12px 1px rgba(0,0,0,0.5);
     box-shadow: 0px 6px 12px 1px rgba(0,0,0,0.5);
+    
+    
+    
 }
 
 .panel__top {    
@@ -116,10 +106,18 @@ body {
     max-width:300px
 }
 
-
-
-
-
+#bk-image {    
+    padding: 160px;
+    margin: 60px auto 0px;
+    background: url(images/empty-state.png);
+    background-repeat: no-repeat;
+    background-origin: padding-box;
+    background-size: 100% 100%;
+    max-width: 600px;
+    background-repeat:no-repeat;
+    background-position: center;
+    display: block;
+}
 
 /*CARDS*/
 .card {
@@ -255,6 +253,7 @@ body {
 
     max-width: 520px;
     margin: 0 auto 30px;
+
 }
 
 input:focus,
@@ -275,6 +274,8 @@ button:focus {
 
         max-width: 1055px;
         margin: 0 auto 30px;
+        
+
     }
 
     @media only screen and (min-width: 1730px) {
@@ -287,7 +288,11 @@ button:focus {
 
             max-width: 1590px;
             margin: 0 auto 30px;
+            
+
         }
+        
+        
 
 
 

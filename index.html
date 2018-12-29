@@ -14,7 +14,6 @@
 
         <header class="header">     
             <h1>Your personal weather dashboard</h1>
-            <div class="header__image"></div>
             <div class="svg"></div>
         </header>
 
@@ -32,7 +31,8 @@
                 </div>
             </div>
 
-
+            <div id="bk-image"></div>
+            
             <section id="cards"></section>
 
         </div>
@@ -45,6 +45,10 @@
 
             var countCard = -1;
             var inputCityName = document.getElementById('inputCityName').value;
+            
+            
+            
+            
             // Adds the json data to the card
             function addData() {           
 
@@ -159,6 +163,13 @@
             // creates the html of the card
             function createCard(callback) {
                 countCard++;
+                if(countCard >= 0) {
+                document.getElementById("bk-image").style.display = "none";
+            } else {
+                document.getElementById("bk-image").style.display = "block";
+            }
+                
+                
                 document.getElementById("cards").innerHTML += cardHtml;
                 callback();
             }
