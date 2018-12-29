@@ -9,14 +9,37 @@
     </head>
     <body>
 
-        
-        <section id="cards">
 
-        </section>
 
-        <input type="button" onclick="addCity()" value="Add City">
 
-        <input id="inputCityName" type="text">
+        <header class="header">     
+            <h1>Your personal weather dashboard</h1>
+            <div class="header__image"></div>
+            <div class="svg"></div>
+        </header>
+
+
+        <div class="panel">
+
+            <div class="panel__top">
+                <div class="inputHolder">      
+                    <input type="text" placeholder="City Name" class="inputHolder__input" id="inputCityName">
+                   <input class="inputHolder__button" type="button" onclick="addCity()" value="Add City">
+                    <!--
+<input class="inputHolder__input" id="inputCityName" type="text">
+
+-->
+                </div>
+            </div>
+
+
+            <section id="cards"></section>
+
+        </div>
+
+
+
+
 
         <script>
 
@@ -171,11 +194,11 @@
 
 <div class="dayHolder">
 <div class="dayHolder__background"></div>
-    <div class="day2Name dayName"></div>
-    <img class="day2Icon icon" src="">
-    <div class="dayHolder__bottom">
-    <div class="day2Low dayHolder__bottom__temperature"></div>
-    <div class="day2High dayHolder__bottom__temperature"></div> 
+<div class="day2Name dayName"></div>
+<img class="day2Icon icon" src="">
+<div class="dayHolder__bottom">
+<div class="day2Low dayHolder__bottom__temperature"></div>
+<div class="day2High dayHolder__bottom__temperature"></div> 
             </div>
             </div>
 
