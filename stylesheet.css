@@ -16,13 +16,20 @@ body {
 
 .ap-icon-clear {
     display: none;
-    padding-right: 16px;  
 }
 
 .ap-input {
     padding-right: 16px;
+    text-align: center;
 }
 
+#scrollIcon {
+    position: relative;
+    bottom: 130px;
+    right: -50%;
+    margin-left: -20px;
+    width: 40px;
+}
 
 
 
@@ -66,7 +73,7 @@ body {
     min-height: 500px;
     background-color: white;
     position: relative;
-    top: -100px;
+    top: -120px;
     padding: 20px;
 
     -webkit-box-shadow: 0px 6px 12px 1px rgba(0,0,0,0.5);
