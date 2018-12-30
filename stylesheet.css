@@ -10,6 +10,22 @@ body {
     margin: 0px;
 }
 
+.ap-icon-pin {
+    display: none;
+}
+
+.ap-icon-clear {
+    display: none;
+    padding-right: 16px;  
+}
+
+.ap-input {
+    padding-right: 16px;
+}
+
+
+
+
 /*HEADER*/
 .header {
     height: 100vh;  

@@ -21,34 +21,29 @@
         <div class="panel">
 
             <div class="panel__top">
-                <div class="inputHolder">      
-                    <input type="text" placeholder="City Name" class="inputHolder__input" id="inputCityName">
-                   <input class="inputHolder__button" type="button" onclick="addCity()" value="Add City">
-                    <!--
-<input class="inputHolder__input" id="inputCityName" type="text">
+                <div class="inputHolder">  
 
--->
+                    <input type="search" placeholder="City Name" class="inputHolder__input" id="inputCityName">
+
                 </div>
             </div>
 
             <div id="emptyStateImage"></div>
-            
+
             <section id="cards"></section>
 
         </div>
 
 
 
-
+        <!--        algolia places autocomplete -->
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.1"></script>
 
         <script>
-
             var countCard = -1;
             var inputCityName = document.getElementById('inputCityName').value;
-            
-            
-            
-            
+
+
             // Adds the json data to the card
             function addData() {           
 
@@ -157,24 +152,23 @@
                 httpRequestAsync(urlWeekly, jsonWeekly);
                 httpRequestAsync(urlDaily, jsonTemperature);
 
-                document.getElementById('inputCityName').value = "";
+                
             }
 
             // creates the html of the card
             function createCard(callback) {
                 countCard++;
                 if(countCard >= 0) {
-                document.getElementById("bk-image").style.display = "none";
-            } else {
-                document.getElementById("bk-image").style.display = "block";
-            }
-                
-                
+                    document.getElementById("emptyStateImage").style.display = "none";
+                } else {
+                    document.getElementById("emptyStateImage").style.display = "block";
+                }
+
                 document.getElementById("cards").innerHTML += cardHtml;
                 callback();
             }
 
-
+            // calls the createCard method
             function addCity() {
                 if (document.getElementById('inputCityName').value == "") {
                     alert("Enter a city name");
@@ -183,8 +177,31 @@
                 else {
                     createCard(addData);  
                 }
-
             }
+
+            // Autocomplete
+            (function() {
+                var placesAutocomplete = places({
+                    appId: 'plLLEB70M4H1',
+                    apiKey: 'f374ea84c48e0e9838252fe85da1a65f',
+                    container: document.querySelector('#inputCityName'),
+                    templates: {
+                        value: function(suggestion) {
+                            return suggestion.name;
+                        }
+                    }
+                }).configure({
+                    type: 'city',
+                    aroundLatLngViaIP: false,
+                });
+                                
+                placesAutocomplete.on('change', function(e) {                    
+                    addCity();                    
+                });
+
+        
+
+            })();
 
 
             let cardHtml = ` 
