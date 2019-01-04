@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: 'Roboto', 'Merriweather Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     /*    font-family: 'Merriweather', serif;*/
     background-color: hsl(0, 1%, 11%);
     padding: 0px;
@@ -62,8 +62,6 @@ body {
 .svg {
 
 }
-
-
 
 /*PANEL*/
 .panel {

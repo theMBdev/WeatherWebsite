@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather Dashboard</title>
         <link rel="stylesheet" href="stylesheet.css" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700|Merriweather:400,700|Roboto:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     </head>
     <body>
 
@@ -14,17 +14,17 @@
 
         <header class="header">     
             <h1>Your personal weather dashboard</h1>
-            
+
         </header>
 
         <img id="scrollIcon" src="images/scroll.png">
-        
+
         <div class="panel">
-            
+
             <div class="panel__top">
                 <div class="inputHolder">  
 
-                    <input type="search" placeholder="City Name" class="inputHolder__input" id="inputCityName">
+                    <input type="search" placeholder="Enter a City Name" class="inputHolder__input" id="inputCityName">
 
                 </div>
             </div>
@@ -36,7 +36,6 @@
         </div>
 
 
-
         <!--        algolia places autocomplete -->
         <script src="https://cdn.jsdelivr.net/npm/places.js@1.15.1"></script>
 
@@ -46,7 +45,7 @@
 
 
             // Adds the json data to the card
-            function addData() {           
+            function addDataToCard() {           
 
                 inputCityName = document.getElementById('inputCityName').value;
 
@@ -74,6 +73,11 @@
                     return dayName;
                 }
 
+                let day1Name = document.getElementsByClassName("day1Name")[countCard];
+                let day1Icon = document.getElementsByClassName("day1Icon")[countCard];
+                let day1Low = document.getElementsByClassName("day1Low")[countCard];
+                let day1High = document.getElementsByClassName("day1High")[countCard];
+
                 let day2Name = document.getElementsByClassName("day2Name")[countCard];
                 let day2Icon = document.getElementsByClassName("day2Icon")[countCard];
                 let day2Low = document.getElementsByClassName("day2Low")[countCard];
@@ -94,39 +98,35 @@
                 let day5Low = document.getElementsByClassName("day5Low")[countCard];
                 let day5High = document.getElementsByClassName("day5High")[countCard];
 
-                let day6Name = document.getElementsByClassName("day6Name")[countCard];
-                let day6Icon = document.getElementsByClassName("day6Icon")[countCard];
-                let day6Low = document.getElementsByClassName("day6Low")[countCard];
-                let day6High = document.getElementsByClassName("day6High")[countCard];
-
                 // 5 day high and low temperature with icon and day name
+                // this is for the json data response for on load do elsewere in new function
                 function jsonWeekly(response) {
                     let jsonObject = JSON.parse(response);
 
-                    day2Name.innerHTML = getDay(jsonObject.list[1].dt);
-                    day2Icon.src = "images/" + jsonObject.list[1].weather[0].icon + ".png";
-                    day2Low.innerHTML = parseInt(jsonObject.list[1].temp.min ) + "°";
-                    day2High.innerHTML = parseInt(jsonObject.list[1].temp.max) + "°";
+                    day1Name.innerHTML = getDay(jsonObject.list[1].dt);
+                    day1Icon.src = "images/" + jsonObject.list[1].weather[0].icon + ".png";
+                    day1Low.innerHTML = parseInt(jsonObject.list[1].temp.min ) + "°";
+                    day1High.innerHTML = parseInt(jsonObject.list[1].temp.max) + "°";
 
-                    day3Name.innerHTML = getDay(jsonObject.list[2].dt);
-                    day3Icon.src = "images/" + jsonObject.list[2].weather[0].icon + ".png";
-                    day3Low.innerHTML = parseInt(jsonObject.list[2].temp.min ) + "°";
-                    day3High.innerHTML = parseInt(jsonObject.list[2].temp.max) + "°";
+                    day2Name.innerHTML = getDay(jsonObject.list[2].dt);
+                    day2Icon.src = "images/" + jsonObject.list[2].weather[0].icon + ".png";
+                    day2Low.innerHTML = parseInt(jsonObject.list[2].temp.min ) + "°";
+                    day2High.innerHTML = parseInt(jsonObject.list[2].temp.max) + "°";
 
-                    day4Name.innerHTML = getDay(jsonObject.list[3].dt);
-                    day4Icon.src = "images/" + jsonObject.list[3].weather[0].icon + ".png";
-                    day4Low.innerHTML = parseInt(jsonObject.list[3].temp.min ) + "°";
-                    day4High.innerHTML = parseInt(jsonObject.list[3].temp.max) + "°";
+                    day3Name.innerHTML = getDay(jsonObject.list[3].dt);
+                    day3Icon.src = "images/" + jsonObject.list[3].weather[0].icon + ".png";
+                    day3Low.innerHTML = parseInt(jsonObject.list[3].temp.min ) + "°";
+                    day3High.innerHTML = parseInt(jsonObject.list[3].temp.max) + "°";
 
-                    day5Name.innerHTML = getDay(jsonObject.list[4].dt);
-                    day5Icon.src = "images/" + jsonObject.list[4].weather[0].icon + ".png";
-                    day5Low.innerHTML = parseInt(jsonObject.list[4].temp.min ) + "°";
-                    day5High.innerHTML = parseInt(jsonObject.list[4].temp.max) + "°";
+                    day4Name.innerHTML = getDay(jsonObject.list[4].dt);
+                    day4Icon.src = "images/" + jsonObject.list[4].weather[0].icon + ".png";
+                    day4Low.innerHTML = parseInt(jsonObject.list[4].temp.min ) + "°";
+                    day4High.innerHTML = parseInt(jsonObject.list[4].temp.max) + "°";
 
-                    day6Name.innerHTML = getDay(jsonObject.list[5].dt);
-                    day6Icon.src = "images/" + jsonObject.list[5].weather[0].icon + ".png";
-                    day6Low.innerHTML = parseInt(jsonObject.list[5].temp.min ) + "°";
-                    day6High.innerHTML = parseInt(jsonObject.list[5].temp.max) + "°";
+                    day5Name.innerHTML = getDay(jsonObject.list[5].dt);
+                    day5Icon.src = "images/" + jsonObject.list[5].weather[0].icon + ".png";
+                    day5Low.innerHTML = parseInt(jsonObject.list[5].temp.min ) + "°";
+                    day5High.innerHTML = parseInt(jsonObject.list[5].temp.max) + "°";
 
                 }
 
@@ -153,7 +153,6 @@
                 httpRequestAsync(urlWeekly, jsonWeekly);
                 httpRequestAsync(urlDaily, jsonTemperature);
 
-                
             }
 
             // creates the html of the card
@@ -169,14 +168,14 @@
                 callback();
             }
 
-            // calls the createCard method
+            // calls the createCard method then addDataToCard method
             function addCity() {
                 if (document.getElementById('inputCityName').value == "") {
                     alert("Enter a city name");
                     return;
                 }
                 else {
-                    createCard(addData);  
+                    createCard(addDataToCard);  
                 }
             }
 
@@ -195,14 +194,15 @@
                     type: 'city',
                     aroundLatLngViaIP: false,
                 });
-                                
+
                 placesAutocomplete.on('change', function(e) {                    
                     addCity();                    
                 });
 
-        
+
 
             })();
+
 
 
             let cardHtml = ` 
@@ -220,6 +220,16 @@
             </div>
 
 <div class="card__bottom">
+
+<div class="dayHolder">
+<div class="dayHolder__background"></div>
+<div class="day1Name dayName"></div>
+<img class="day1Icon icon" src="">
+<div class="dayHolder__bottom">
+<div class="day1Low dayHolder__bottom__temperature"></div>
+<div class="day1High dayHolder__bottom__temperature"></div> 
+            </div>
+            </div>
 
 <div class="dayHolder">
 <div class="dayHolder__background"></div>
@@ -262,15 +272,6 @@
             </div>
             </div>
 
-<div class="dayHolder">
-<div class="dayHolder__background"></div>
-<div class="day6Name dayName"></div>
-<img class="day6Icon icon" src="">
-<div class="dayHolder__bottom">
-<div class="day6Low dayHolder__bottom__temperature"></div>
-<div class="day6High dayHolder__bottom__temperature"></div> 
-            </div>
-            </div>
 
             </div>
             </div>
